@@ -1,0 +1,595 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Information Hub | Premium Data Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6c5ce7;
+            --primary-dark: #5649c7;
+            --secondary: #a29bfe;
+            --dark: #2d3436;
+            --darker: #1a1e1f;
+            --light: #f5f6fa;
+            --lighter: #ffffff;
+            --success: #00b894;
+            --success-dark: #00997a;
+            --danger: #d63031;
+            --warning: #fdcb6e;
+            --info: #0984e3;
+            --gray: #dfe6e9;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            background-image: radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.05) 1px, transparent 0);
+            background-size: 20px 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            background: linear-gradient(135deg, var(--primary), var(--info));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+        
+        .subtitle {
+            color: var(--dark);
+            opacity: 0.8;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .badge-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+        
+        .badge {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .badge i {
+            font-size: 0.7rem;
+        }
+        
+        .badge-success {
+            background-color: var(--success);
+        }
+        
+        .price-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .price-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .price-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1.2rem;
+            text-align: center;
+        }
+        
+        .card-header h3 {
+            font-weight: 600;
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .card-header .price {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+        }
+        
+        .feature-list {
+            list-style: none;
+        }
+        
+        .feature-item {
+            padding: 0.7rem 0;
+            border-bottom: 1px dashed var(--gray);
+            display: flex;
+            align-items: center;
+        }
+        
+        .feature-item:last-child {
+            border-bottom: none;
+        }
+        
+        .feature-item i {
+            color: var(--primary);
+            margin-right: 0.7rem;
+            font-size: 0.9rem;
+        }
+        
+        .highlight-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            border-left: 5px solid var(--success);
+        }
+        
+        .highlight-card h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .highlight-card p {
+            color: var(--dark);
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+        
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.7rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 1rem 2.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.3);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            min-width: 220px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(108, 92, 231, 0.4);
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+        }
+        
+        .btn:active {
+            transform: translateY(1px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, var(--success), var(--success-dark));
+            box-shadow: 0 5px 15px rgba(0, 184, 148, 0.3);
+        }
+        
+        .btn-success:hover {
+            box-shadow: 0 8px 25px rgba(0, 184, 148, 0.4);
+            background: linear-gradient(135deg, var(--success-dark), var(--success));
+        }
+        
+        .testimonials {
+            margin: 3rem 0;
+        }
+        
+        .testimonials h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-top: 3px solid var(--primary);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: var(--darker);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .author-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .author-info h4 {
+            font-size: 0.9rem;
+            color: var(--dark);
+        }
+        
+        .author-info p {
+            font-size: 0.8rem;
+            color: #777;
+        }
+        
+        .disclaimer {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 0.8rem;
+            color: #777;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 1rem;
+            background-color: rgba(0, 0, 0, 0.02);
+            border-radius: 10px;
+        }
+        
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .payment-method {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            font-size: 0.9rem;
+        }
+        
+        .payment-method i {
+            color: var(--primary);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--gray);
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px);
+            background-color: var(--primary-dark);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+            
+            .logo {
+                font-size: 2.2rem;
+            }
+            
+            .price-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">EliteInfoHub</div>
+            <p class="subtitle">Access premium verified information services with 99.8% accuracy guaranteed</p>
+            
+            <div class="badge-container">
+                <div class="badge">
+                    <i class="fas fa-check-circle"></i>
+                    Verified Data
+                </div>
+                <div class="badge">
+                    <i class="fas fa-shield-alt"></i>
+                    Secure Service
+                </div>
+                <div class="badge badge-success">
+                    <i class="fas fa-bolt"></i>
+                    Instant Delivery
+                </div>
+            </div>
+        </header>
+        
+        <div class="highlight-card">
+            <h2><i class="fas fa-crown"></i> Special Offer This Week</h2>
+            <p>Get 15% discount on all services when you order 3 or more items. Use code <strong>ELITE15</strong> at checkout.</p>
+            <div class="btn btn-success">
+                <i class="fas fa-paper-plane"></i> Contact Now
+            </div>
+        </div>
+        
+        <div class="price-section">
+            <div class="price-card">
+                <div class="card-header">
+                    <h3>Financial Services</h3>
+                    <div class="price">450৳ - 900৳</div>
+                </div>
+                <div class="card-body">
+                    <ul class="feature-list">
+                        <li class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <div>
+                                <strong>Nagad Full Info</strong> - 450৳
+                                <div class="feature-desc">Complete account details including registration info</div>
+                            </div>
+                        </li>
+                        <li class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <div>
+                                <strong>Bkash Full Info</strong> - 900৳
+                                <div class="feature-desc">Full account access with complete details</div>
+                            </div>
+                        </li>
+                        <li class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <div>
+                                <strong>Bkash Half Info</strong> - FREE
+                                <div class="feature-desc">Basic account information</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="price-card">
+                <div class="card-header" style="background: linear-gradient(135deg, #0984e3, #00cec9);">
+                    <h3>Identity Services</h3>
+                    <div class="price">110৳ - 550৳</div>
+                </div>
+                <div class="card-body">
+                    <ul class="feature-list">
+                        <li class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <div>
+                                <strong>Biometric/Number to NID</strong> - 110৳
+                                <div class="feature-desc">Get NID details from biometric data or phone number</div>
+                            </div>
+                        </li>
+                        <li class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <div>
+                                <strong>NID to All Numbers</strong> - 450৳
+                                <div class="feature-desc">All phone numbers linked to an NID</div>
+                            </div>
+                        </li>
+                        <li class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <div>
+                                <strong>IMEI to Active Number</strong> - 550৳
+                                <div class="feature-desc">Current active number using specific IMEI</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="price-card">
+                <div class="card-header" style="background: linear-gradient(135deg, #e84393, #fd79a8);">
+                    <h3>Tracking Services</h3>
+                    <div class="price">300৳ - 400৳</div>
+                </div>
+                <div class="card-body">
+                    <ul class="feature-list">
+                        <li class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <div>
+                                <strong>Number to Location</strong> - 400৳
+                                <div class="feature-desc">Real-time location tracking by number</div>
+                            </div>
+                        </li>
+                        <li class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <div>
+                                <strong>Number to IMEI</strong> - 300৳
+                                <div class="feature-desc">Device IMEI number from phone number</div>
+                            </div>
+                        </li>
+                        <li class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <div>
+                                <strong>Custom Tracking</strong> - Contact
+                                <div class="feature-desc">Specialized tracking solutions</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="btn-container">
+            <a href="https://t.me/rafi_not_found" class="btn" target="_blank">
+                <i class="fab fa-telegram"></i> Contact on Telegram
+            </a>
+
+        <div class="payment-methods">
+            <div class="payment-method">
+                <i class="fab fa-cc-visa"></i> Visa
+            </div>
+            <div class="payment-method">
+                <i class="fab fa-cc-mastercard"></i> Mastercard
+            </div>
+            <div class="payment-method">
+                <i class="fas fa-mobile-alt"></i> bKash
+            </div>
+            <div class="payment-method">
+                <i class="fas fa-wallet"></i> Nagad
+            </div>
+            <div class="payment-method">
+                <i class="fas fa-money-bill-wave"></i> Rocket
+            </div>
+        </div>
+        
+        <div class="testimonials">
+            <h2><i class="fas fa-star"></i> Client Testimonials</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The NID to number service helped me recover my lost accounts. Fast and reliable service!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AS</div>
+                        <div class="author-info">
+                            <h4>Abdul Samad</h4>
+                            <p>Business Owner</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Received my bkash full info within 10 minutes of payment. Highly recommended!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">NR</div>
+                        <div class="author-info">
+                            <h4>Nusrat Jahan</h4>
+                            <p>Freelancer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Accurate location tracking helped me find my stolen phone. Excellent service."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MI</div>
+                        <div class="author-info">
+                            <h4>Mahmudul Islam</h4>
+                            <p>University Student</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <p class="disclaimer">
+            <strong>Disclaimer:</strong> All services are provided for legitimate purposes only. We do not condone illegal activities. 
+            By using our services, you agree that you have proper authorization to access the requested information. 
+            Prices are subject to change based on complexity and availability.
+        </p>
+        
+        <footer>
+            <div class="social-links">
+                <a href="https://t.me/X_P4IM" class="social-link" target="_blank"><i class="fab fa-telegram"></i></a>
+            </div>
+            <p>© 2025 PrimeInfoHub. All rights reserved.</p>
+            <p>24/7 Support Available</p>
+        </footer>
+    </div>
+</body>
+</html>
